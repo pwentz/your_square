@@ -28,6 +28,7 @@ gem 'faker'
 gem 'pry-rails'
 gem 'haml-rails'
 gem 'foundation-rails'
+gem 'turbolinks'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
