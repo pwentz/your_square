@@ -1,0 +1,13 @@
+.row
+  .small-4.columns.callout.primary.info-container
+    %h5 Account Information
+    %ul#account-info
+      %li 
+        %strong username: 
+        = current_user.username
+      %li 
+        %strong email: 
+        = current_user.email
+      %li 
+        %strong phone: 
+        = current_user.phone_number

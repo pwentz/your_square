@@ -9,7 +9,7 @@ require 'capybara/rspec'
 require 'rack_session_access/capybara'
 require 'support/factory_girl'
 # Add additional requires below this line. Rails is not loaded until this point!
-Shoula::Matchers.configure do |config|
+Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
     with.library :rails
