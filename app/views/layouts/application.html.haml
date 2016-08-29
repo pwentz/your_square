@@ -8,9 +8,25 @@
     %title= content_for?(:title) ? yield(:title) : "Your Square"
 
     = stylesheet_link_tag "application"
+    = stylesheet_link_tag "custom"
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tag
 
   %body
+    %ul.nav-bar-primary.dropdown.menu.align-right{ 'data-dropdown-menu' => ''}
+      %li.user-info
+        - if current_user
+          %a{href: '#'}= current_user.username
+          %ul.menu
+            %li
+              = link_to 'Logout', logout_path, method: 'delete'
+        - else
+          %a{ href: '/login' } Login
+
+      %li.menu-text YourSquare
+
+
+    - flash.each do |type, message|
+      = content_tag( :div, sanitize(message), class: "flash-#{type}" )
 
     = yield

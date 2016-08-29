@@ -23,19 +23,20 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 gem 'pry-rails'
 gem 'haml-rails'
 gem 'foundation-rails'
+gem 'turbolinks'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec-rails'
-  gem 'capybara'
+  gem 'rspec-rails', '~> 3.5.1'
+  gem 'capybara', '~> 2.8.0'
   gem 'shoulda-matchers'
   gem 'launchy'
   gem 'factory_girl_rails'
