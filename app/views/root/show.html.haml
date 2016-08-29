@@ -1,0 +1,14 @@
+.root-background
+%div
+  .filler
+  .row.root-container
+    .small-3.small-offset-3.columns
+      %input{ type: 'text', placeholder: "I'm looking for..." }
+    .small-2.columns
+      %select
+        %option{ value: "" }Location1
+        %option{ value: "" }Location2
+    .small-2.end.columns.search-btn-container
+      %a{ href: '#', class: 'success button' }
+        %i.fi-map
+        Search

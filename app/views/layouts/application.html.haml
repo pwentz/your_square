@@ -7,23 +7,14 @@
 
     %title= content_for?(:title) ? yield(:title) : "Your Square"
 
+    %link{ rel: "stylesheet", href: "https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css" }
     = stylesheet_link_tag "application"
     = stylesheet_link_tag "custom"
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tag
 
   %body
-    %ul.nav-bar-primary.dropdown.menu.align-right{ 'data-dropdown-menu' => ''}
-      %li.user-info
-        - if current_user
-          %a{href: '#'}= current_user.username
-          %ul.menu
-            %li
-              = link_to 'Logout', logout_path, method: 'delete'
-        - else
-          %a{ href: '/login' } Login
-
-      %li.menu-text YourSquare
+    = render partial: 'layouts/default_nav'
 
 
     - flash.each do |type, message|

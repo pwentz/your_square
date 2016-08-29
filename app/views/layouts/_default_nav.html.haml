@@ -1,0 +1,20 @@
+.nav-bar-primary
+  .row
+    .small-12.columns
+      %ul.dropdown.menu.align-right{ 'data-dropdown-menu' => ''}
+        %li.user-info
+          - if current_user
+            %a
+              %i{class: 'fi-torso'}
+              = current_user.username
+              %ul.menu
+                %li
+                  = link_to 'Dashboard', dashboard_path
+                %li
+                  = link_to 'Logout', logout_path, method: 'delete'
+          - else
+            %a{ href: '/login' } Login
+
+        %ul.menu
+          %li
+            = link_to 'YourSquare', root_path, class: 'menu-text'

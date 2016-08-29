@@ -1,7 +1,8 @@
-.input-container {
+body {
+  z-index: 1;
 }
-
 .header-text {
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -18,18 +19,10 @@
   margin-top: 25px;
 }
 
-.info-container {
-  margin-top: 20px;
-  height: 250px;
-}
-
-.info-container h5 {
-  text-align: center;
-}
-
 .nav-bar-primary {
   background-color: #99ff99;
 }
+
 
 .nav-bar-primary a {
   color: black;
@@ -37,5 +30,142 @@
 }
 
 .nav-bar-primary li {
+  margin-top: 5px;
+  margin-bottom: 5px;
   margin-right: 15px;
+}
+
+.nav-bar-primary ul {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 15px;
+}
+
+.flash-success {
+  text-align: center;
+  background-color: #99ff99;
+}
+
+.root-background {
+  background-image: url('roadmap.jpg');
+  background-position: center;
+  background-size: center;
+  position: absolute;
+  z-index: -1;
+  -moz-filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.root-container {
+  height: 100%;
+}
+
+.filler {
+  height: 250px;
+}
+
+.dashboard-filler {
+  height: 100px;
+}
+
+.button.success {
+  background-color: #99ff99;
+  color: black;
+}
+
+.search-btn-container {
+  margin-bottom: 2px;
+}
+
+.dashboard-background {
+  background-color: #f2f2f2;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1000px;
+}
+
+.info-container {
+  height: 250px;
+  background-color: white;
+}
+
+#account-information {
+  background-color: white;
+}
+
+.user-avatar {
+  margin-top: 15px;
+  height: 200px;
+  width: 200px;
+  border-radius: 15px 15px 15px 15px;
+}
+
+#account-details {
+  margin-top: 15px;
+  padding-left: 0px;
+}
+
+#social-stats {
+  display: inline-block;
+  list-style-type: none;
+}
+
+#social-stats li {
+  display: inline-block;
+  width: 80px;
+  margin-right: 25px;
+}
+
+#social-stats .columns {
+}
+
+#social-stats li h5 {
+  margin-left: 20px;
+}
+
+.outer-text {
+  margin-left: 5px;
+}
+
+.inner-text {
+  margin-right: 10px;
+  margin-left: 0px;
+}
+
+.stat {
+  width: 100%;
+}
+
+.stat i {
+  margin-left: 7px;
+}
+
+.stat p {
+  font-size: 14px;
+  width: 100%;
+}
+
+.recent-lists {
+  height: 375px;
+  background-color: white;
+  margin-top: 20px;
+  border-radius: 12px 12px 12px 12px;
+}
+
+.top-list {
+  background-image: url('venue.jpg');
+  height: 150px;
+  width: 340px;
+}
+
+#user-favorites {
+  margin-top: 25px;
 }
