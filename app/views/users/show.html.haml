@@ -1,13 +1,52 @@
-.row
-  .small-4.columns.callout.primary.info-container
-    %h5 Account Information
-    %ul#account-info
-      %li 
-        %strong username: 
-        = current_user.username
-      %li 
-        %strong email: 
-        = current_user.email
-      %li 
-        %strong phone: 
-        = current_user.phone_number
+.dashboard-background
+.dashboard-filler
+%div#account-information
+  .row.info-container
+    .small-3.columns
+      %img{ src: Faker::Avatar.image, class: 'user-avatar' }
+    .small-3.columns#account-details
+      %h3= current_user.username
+      %p= current_user.email
+    .small-5.columns#account-stat-container
+      .dashboard-filler
+      .row
+        %ul#social-stats
+          .small-3.columns
+            %li
+              %h5 0
+              .stat
+                %i.fi-lightbulb.medium
+              %p.outer-text Ideas
+          .small-3.columns
+            %li
+              %h5 0
+              .stat
+                %i.fi-torsos-all.medium
+              %p.inner-text Followers
+          .small-3.columns
+            %li
+              %h5 0
+              .stat
+                %i.fi-torsos-all.medium
+              %p.inner-text Following
+          .small-3.columns
+            %li
+              %h5 0
+              .stat
+                %i.fi-list-bullet.medium
+              %p.outer-text Lists
+.row#user-favorites
+  %h4
+    = current_user.username
+    \'s Recent Lists
+  .small-4.columns.recent-lists
+    .top-list
+    %hr
+    .bottom-list
+      %h5 My saved places
+  .small-4.columns.recent-lists.small-offset-1.end
+    .top-list
+      %a.list-photo
+    %hr
+    .bottom-list
+      %h5 My Liked Places

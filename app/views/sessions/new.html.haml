@@ -1,12 +1,14 @@
-%h5.header-text Please enter your username and password to enjoy YourSquare!
-
+.root-background
+.dashboard-filler
 .row
   .small-4.small-centered.columns
     .callout.login-form
       .input-container.row
         .small-9.small-centered.columns
           = form_for :session do |f|
+            = f.label :username
             = f.text_field :username, placeholder: 'Enter your username'
+            = f.label :password
             = f.password_field :password, placeholder: 'Enter your password'
             .row
               .button-container.small-4.small-centered.columns

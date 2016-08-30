@@ -29,6 +29,8 @@ gem 'pry-rails'
 gem 'haml-rails'
 gem 'foundation-rails'
 gem 'turbolinks'
+gem 'figaro'
+gem 'omniauth-foursquare'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
