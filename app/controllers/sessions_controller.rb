@@ -3,15 +3,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:session][:username])
-    if @user && @user.authenticate(params[:session][:password])
-      session[:user_id] = @user.id
-      flash[:success] = 'Successfully logged in!'
-      redirect_to dashboard_path
-    else
-      flash[:danger] = 'Invalid login credentials'
-      render :new
-    end
+    response_data = request.env["omniauth.auth"]
+    token = OauthTokenReceiver.new.exchange_code_for_token(params[:code])
+    YourSquareUserService.new.instantiate_user(response_data.uid, token)
+    session[:user_id] = response_data.uid
+    redirect_to root_path
   end
 
   def destroy
