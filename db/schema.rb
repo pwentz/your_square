@@ -10,32 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830144359) do
+ActiveRecord::Schema.define(version: 20160830203949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "checkins", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "venue_id"
-    t.index ["user_id"], name: "index_checkins_on_user_id", using: :btree
-    t.index ["venue_id"], name: "index_checkins_on_venue_id", using: :btree
-  end
-
   create_table "users", force: :cascade do |t|
-    t.text   "email"
-    t.string "phone_number"
-    t.text   "uid"
-    t.text   "name"
-    t.text   "location"
-    t.text   "photo"
-    t.text   "token"
+    t.text "token"
+    t.text "uid"
   end
 
-  create_table "venues", force: :cascade do |t|
-    t.text "name"
-  end
-
-  add_foreign_key "checkins", "users"
-  add_foreign_key "checkins", "venues"
 end
