@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'rack_session_access/capybara'
 require 'support/factory_girl'
+require 'omniauth-foursquare'
 # Add additional requires below this line. Rails is not loaded until this point!
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -15,6 +16,7 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
