@@ -1,5 +1,6 @@
 body {
   z-index: 1;
+  font-family: Raleway;
 }
 .header-text {
   margin-top: 10px;
@@ -23,19 +24,40 @@ body {
   background-color: #99ff99;
 }
 
-
-.nav-bar-primary a {
-  color: black;
-  text-align: center;
+.nav-bar-browse {
+  background-color: #99ff99;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
-.nav-bar-primary li {
+.menu-text {
+  font-family: Raleway;
+  font-size: 20px;
+  font-weight: 800;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.nav-location {
+  margin-left: 20px;
+  width: 150px;
+}
+
+.nav-bar-primary a, .nav-bar-browse a {
+  color: black;
+  text-align: center;
+  font-family: Raleway;
+}
+
+.nav-bar-primary li, .nav-bar-browse li {
   margin-top: 5px;
   margin-bottom: 5px;
   margin-right: 15px;
 }
 
-.nav-bar-primary ul {
+.nav-bar-primary ul, .nav-bar-browse ul {
   margin-top: 5px;
   margin-bottom: 5px;
   margin-right: 15px;

@@ -8,13 +8,17 @@
     %title= content_for?(:title) ? yield(:title) : "Your Square"
 
     %link{ rel: "stylesheet", href: "https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css" }
+    %link{ href: "https://fonts.googleapis.com/css?family=Raleway", rel: "stylesheet" }
     = stylesheet_link_tag "application"
     = stylesheet_link_tag "custom"
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tag
 
   %body
-    = render partial: 'layouts/default_nav'
+    - if params[:controller] == 'root'
+      = render partial: 'layouts/default_nav'
+    - else
+      = render partial: 'layouts/browse_nav'
 
 
     - flash.each do |type, message|
