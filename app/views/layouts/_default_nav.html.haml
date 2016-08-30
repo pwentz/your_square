@@ -2,8 +2,8 @@
   .row
     .small-12.columns
       %ul.dropdown.menu.align-right{ 'data-dropdown-menu' => ''}
-        %li.user-info
-          - if current_user
+        - if current_user
+          %li.user-info
             %a
               %i{class: 'fi-torso'}
               = current_user.username
@@ -12,8 +12,15 @@
                   = link_to 'Dashboard', dashboard_path
                 %li
                   = link_to 'Logout', logout_path, method: 'delete'
-          - else
-            %a{ href: '/login' } Login
+        - else
+          %li.user-info
+            %a Login
+            %ul.menu
+              %li
+                %a{ href: "https://foursquare.com/oauth2/authenticate?client_id=#{ENV['foursquare_id']}&response_type=code&redirect_uri=http://127.0.0.1:3000/auth/foursquare/callback" }
+                  %i.fi-social-foursquare.medium
+                  Login
+
 
         %ul.menu
           %li

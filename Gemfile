@@ -30,6 +30,7 @@ gem 'haml-rails'
 gem 'foundation-rails'
 gem 'turbolinks'
 gem 'figaro'
+gem 'awesome_print'
 gem 'omniauth-foursquare'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
