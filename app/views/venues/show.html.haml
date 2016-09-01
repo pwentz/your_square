@@ -1,5 +1,46 @@
 %div
   .dashboard-filler
   .row.venue-container
-    .small-10.small-centered.columns
-      %h5#venue-header= @venue.name
+    %h3#venue-header= @venue.name
+    .small-3.columns.callout.primary
+      %ul#venue-details
+        %li 
+          Address: 
+          %strong
+            #{@venue.address}
+        %li 
+          Categories:
+          %ul
+            - @venue.categories.each do |category|
+              %li
+                %strong
+                  = category
+    .small-8.tips-container.columns.small-offset-1.end
+      %h5#tips-header Tips from this location:
+      - @venue.tips.each do |tip|
+        .row
+          .small-5.columns.tip-container
+            %ul.tip-details
+              %li 
+                %strong
+                  Date Posted: 
+                #{tip.created_at}
+
+              %li 
+                %strong
+                  User: 
+                #{tip.user}
+
+              %li 
+                %strong
+                  Agree: 
+                #{tip.agree_count}
+
+              %li 
+                %strong
+                  Disagree: 
+                #{tip.disagree_count}
+
+          .small-7.columns.end
+            %p= tip.description
+        %hr

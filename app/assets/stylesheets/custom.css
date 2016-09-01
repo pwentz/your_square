@@ -176,7 +176,6 @@ body {
 }
 
 .recent-lists {
-  height: 375px;
   background-color: white;
   margin-top: 20px;
   border-radius: 12px 12px 12px 12px;
@@ -193,6 +192,39 @@ body {
 }
 
 .venue-container {
-  background-color: wheat;
-  height: 450px;
+  height: 250px;
+}
+
+#venue-header {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 600;
+  font-family: Raleway;
+}
+
+#venue-details, #venue-details li {
+  list-style-type: none;
+}
+
+.venue-container div {
+  border-radius: 12px 12px 12px 12px;
+}
+
+.tips-container {
+  background-color: #def0fc;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 12px 12px 12px 12px;
+  margin-top: 20px;
+}
+
+.tip-details {
+  list-style-type: none;
+}
+
+#tips-header {
+  text-align: center;
+  font-family: Raleway;
+  margin-top: 25px;
+  font-weight: 600;
+  margin-bottom: 25px;
 }
