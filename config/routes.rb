@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   get '/auth/foursquare/callback', to: 'sessions#create'
 
-  get '/venues/:venue', to: 'venues#show', as: 'venue'
+  get '/venues/:venue_id', to: 'venues#show', as: 'venue'
 end

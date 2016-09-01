@@ -191,3 +191,8 @@ body {
 #user-favorites {
   margin-top: 25px;
 }
+
+.venue-container {
+  background-color: wheat;
+  height: 450px;
+}

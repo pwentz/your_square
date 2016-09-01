@@ -8,7 +8,8 @@ class FoursquareUserCheckin < OpenStruct
     unless fs_response['count'] < 1
       fs_response['items'].map do |checkin|
         FoursquareUserCheckin.new(
-          venue: checkin['venue']['name']
+          venue: checkin['venue']['name'],
+          venue_id: checkin['venue']['id']
         )
       end
     end
