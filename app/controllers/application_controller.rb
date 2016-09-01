@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if session[:user_id]
+      require 'pry'; binding.pry
       @current_user ||= User.find_by(uid: session[:user_id])
     end
   end
