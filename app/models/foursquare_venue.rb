@@ -10,7 +10,6 @@ class FoursquareVenue < OpenStruct
   def self.find(id)
     venue_response = service.get_venue(id)
     venue_hours = service.get_venue_hours(id)
-    venue_checkins = venue_response['justifications']
     venue_tips = service.get_venue_tips(id)['tips']
     FoursquareVenue.new(
       name: venue_response['name'],
@@ -30,6 +29,6 @@ class FoursquareVenue < OpenStruct
   def self.get_tips(venue_tips)
     venue_tips.map do |tip|
       FoursquareTip.new(tip)
-    end.sort_by{|t| t.agree_count }.reverse
+    end.sort_by{ |t| t.agree_count }.reverse
   end
 end
