@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
   get '/auth/foursquare/callback', to: 'sessions#create'
+
+  get '/venues/:venue', to: 'venues#show', as: 'venue'
 end

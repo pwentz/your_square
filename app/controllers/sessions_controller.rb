@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
     user = YourSquareUserService.new.instantiate_user(response_data.uid, token)
     if user
       session[:user_id] = user.uid
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
   def destroy

@@ -3,10 +3,10 @@
 %div#account-information
   .row.info-container
     .small-3.columns
-      %img{ src: Faker::Avatar.image, class: 'user-avatar' }
+      = image_tag @user.photo, class: 'user-avatar'
     .small-3.columns#account-details
-      %h3= current_user.username
-      %p= current_user.email
+      %h3= @user.fullname
+      %p= @user.email
     .small-5.columns#account-stat-container
       .dashboard-filler
       .row
@@ -19,13 +19,13 @@
               %p.outer-text Ideas
           .small-3.columns
             %li
-              %h5 0
+              %h5= @user.followers
               .stat
                 %i.fi-torsos-all.medium
               %p.inner-text Followers
           .small-3.columns
             %li
-              %h5 0
+              %h5= @user.following
               .stat
                 %i.fi-torsos-all.medium
               %p.inner-text Following
@@ -37,16 +37,13 @@
               %p.outer-text Lists
 .row#user-favorites
   %h4
-    = current_user.username
-    \'s Recent Lists
-  .small-4.columns.recent-lists
-    .top-list
-    %hr
-    .bottom-list
-      %h5 My saved places
-  .small-4.columns.recent-lists.small-offset-1.end
-    .top-list
-      %a.list-photo
-    %hr
-    .bottom-list
-      %h5 My Liked Places
+    = @user.fullname
+    \'s Recent Checkins
+  - @user_checkins.each do |checkin|
+    .small-4.columns.recent-lists.callout.end
+      .top-list
+      -# .top-list{ style: "background-image: url('#{checkin.photo}')" }
+      %hr
+      .bottom-list
+        %h5
+          = link_to checkin.venue, venue_path(checkin.venue)

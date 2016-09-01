@@ -5,7 +5,8 @@
         - if current_user
           %li.user-info
             %a
-              Welcome
+              %i{class: 'fi-torso'}
+              = username
               %ul.menu
                 %li
                   = link_to 'Dashboard', dashboard_path
