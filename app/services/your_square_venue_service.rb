@@ -4,7 +4,9 @@ class YourSquareVenueService
   end
 
   def instantiate_token(token)
-    @token = token
+    @connection.params['oauth_token'] = token
+    @connection.params['v'] = '20160830'
+    @connection.params['m'] = 'foursquare'
   end
 
   def get_venue(id)
@@ -12,11 +14,7 @@ class YourSquareVenueService
   end
 
   def venue_api(id)
-    @connection.get(id) do |req|
-      req.params['oauth_token'] = @token
-      req.params['v'] = '20160830'
-      req.params['m'] = 'foursquare'
-    end
+    @connection.get(id)
   end
 
   def get_venue_hours(id)
@@ -24,11 +22,7 @@ class YourSquareVenueService
   end
 
   def venue_hours_api(id)
-    @connection.get("#{id}/hours") do |req|
-      req.params['oauth_token'] = @token
-      req.params['v'] = '20160830'
-      req.params['m'] = 'foursquare'
-    end
+    @connection.get("#{id}/hours")
   end
 
   def get_venue_tips(id)
@@ -42,6 +36,16 @@ class YourSquareVenueService
       req.params['client_secret'] = ENV['foursquare_secret']
       req.params['v'] = '20160830'
       req.params['m'] = 'foursquare'
+    end
+  end
+
+  def get_venue_photos(id)
+    parse(venue_photos_api(id).body)
+  end
+
+  def venue_photos_api(id)
+    @connection.get("#{id}/photos") do |req|
+      req.params['limit'] = 1
     end
   end
 

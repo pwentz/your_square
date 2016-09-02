@@ -37,4 +37,10 @@ class FoursquareVenue < OpenStruct
       FoursquareTip.new(tip)
     end.sort_by{ |t| t.agree_count }.reverse
   end
+
+  def self.photo(id)
+    raw_photo = service.get_venue_photos(id)['response']['photos']['items'][0]
+    "#{raw_photo['prefix']}300x300#{raw_photo['suffix']}"
+  end
+
 end

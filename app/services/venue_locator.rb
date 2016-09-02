@@ -16,6 +16,7 @@ class VenueLocator
         name: venue['name'],
         address: venue['location']['address'],
         categories: FoursquareVenue.get_categories(venue['categories']),
+        photo: FoursquareVenue.photo(venue['id']),
         hours: FoursquareVenue.venue_hours(venue['id'])
       )
     end
