@@ -9,15 +9,21 @@ class FoursquareVenue < OpenStruct
 
   def self.find(id)
     venue_response = service.get_venue(id)
-    venue_hours = service.get_venue_hours(id)
-    venue_tips = service.get_venue_tips(id)['tips']
     FoursquareVenue.new(
       name: venue_response['name'],
       address: venue_response['location']['address'],
       categories: get_categories(venue_response['categories']),
-      hours: venue_hours['hours']['timeframes'],
-      tips: get_tips(venue_tips['items'])
+      hours: venue_hours(id),
+      tips: get_tips(id)
     )
+  end
+
+  def self.venue_hours(id)
+    service.get_venue_hours(id)['hours']['timeframes']
+  end
+
+  def self.venue_tips(id)
+    service.get_venue_tips(id)['tips']['items']
   end
 
   def self.get_categories(categories)
@@ -26,8 +32,8 @@ class FoursquareVenue < OpenStruct
     end
   end
 
-  def self.get_tips(venue_tips)
-    venue_tips.map do |tip|
+  def self.get_tips(id)
+    venue_tips(id).map do |tip|
       FoursquareTip.new(tip)
     end.sort_by{ |t| t.agree_count }.reverse
   end
