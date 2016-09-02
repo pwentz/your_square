@@ -19,7 +19,9 @@
       %h5#tips-header Tips from this location:
       - @venue.tips.each do |tip|
         .row
-          .small-5.columns.tip-container
+          .small-3.columns.thumbnail-container
+            %img{ src: "#{tip.photo}", class: 'tip-photo' }
+          .small-4.columns.tip-container
             %ul.tip-details
               %li 
                 %strong
@@ -41,6 +43,6 @@
                   Disagree: 
                 #{tip.disagree_count}
 
-          .small-7.columns.end
+          .small-4.columns
             %p= tip.description
         %hr
